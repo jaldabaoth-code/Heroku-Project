@@ -89,8 +89,8 @@
         4. Unfold <b>Database Credentials</b> : Here you will get your database information
         5. In your terminal run : `sudo su - postgres`
         6. Enter your password
-        7. Run : `psql --host=heroku_host_name  --port=5432 --username=heroku_username --password --dbname=heroku_database_name` (replaces <b>heroku_host_name</b>, <b>5432</b>, <b>heroku_username</b> and <b>heroku_database_name</b> by database information you get at step 4)
-        8. Enter heroku database password
+        7. Run : `psql --host=heroku_host_name  --port=5432 --username=heroku_username --password --dbname=heroku_database_name` (replaces <b>heroku_host_name</b>, <b>5432</b>, <b>heroku_username</b> and <b>heroku_database_name</b> by database information you obtained at <b>step d</b>)
+        8. Enter heroku database password you obtained at <b>step d</b>
 
     8. Import the last version of the <b>dataVx.sql</b> file in your database
     9. Go to <b>https://application_name.herokuapp.com</b> with your favorite browser
