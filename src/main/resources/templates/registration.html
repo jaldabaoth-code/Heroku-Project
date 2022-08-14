@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="/static/scss/style.css">
+        <title>Cerebook | Registration</title>
+    </head>
+    <body>
+        <div th:replace="fragments/navbar :: navbar"></div>
+        <div class="container">
+            <div class="row">
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">You've successfully registered to Cerebook!</div>
+                </div>
+                <div class="container text-center justify-content-center form-box mt-5">
+                    <h1 class="mt-5 title-form text-uppercase fw-bold">Registration</h1>
+                    <form th:action="@{/process_register}" th:object="${user}" method="post" style="max-width: 600px; margin: 0 auto;">
+                        <p class="error-message" th:if="${#fields.hasGlobalErrors()}" th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation error</p>
+                        <div class="my-3">
+                            <div>
+                                <label class="form-label mt-5" for="userName">Username</label>
+                                <input type="text" th:field="*{username}" class="form-control" id="userName" required/>
+                                <div class="alert alert-warning" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                                    Username error
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label mt-3" for="email">Email</label>
+                                <input type="text" th:field="*{email}" class="form-control" id="email" required/>
+                                <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                                    Email error
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label mt-3" for="password">Password</label>
+                                <input type="password" th:field="*{password}" class="form-control" required minlength="6" maxlength="64" id="password"/>
+                                <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                                    Password error
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label mt-3" for="firstName">Firstname </label>
+                                <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="155" id="firstName"/>
+                                <div class="alert alert-warning" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                                    Firstname error
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label mt-3" for="lastName">Lastname </label>
+                                <input type="text" th:field="*{lastName}" class="form-control" id="lastName" required minlength="2" maxlength="155"/>
+                                <div class="alert alert-warning" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                                    Firstname error
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success px-4 my-5">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+    <body>
+        <div layout:fragment="content">
+            <!-- Banner (background image and profile photo) -->
+            <div th:replace="fragments/banner :: banner">
+            </div>
+            <!-- Main section -->
+            <div class="container wrapper" id="profile">
+                <!-- Section aboutMe: show the basic infos of the user -->
+                <div class="one" th:replace="fragments/aboutMe :: aboutMe"></div>
+                <!-- Section user's posts -->
+                <div class="three" th:replace="posts/getAllByAuthor :: postByAuthor"></div>
+            </div>
+        </div>
+    </body>
+</html>

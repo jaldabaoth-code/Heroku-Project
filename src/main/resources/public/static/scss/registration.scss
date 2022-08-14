@@ -1,0 +1,24 @@
+.form-box {
+  border: 3px solid $secondary;
+  border-radius: 15px;
+
+  label {
+    font-family: $font_inter;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+
+  input {
+    background-color: $hover-light;
+
+    &:focus {
+      border: 3px solid $green-element;
+    }
+  }
+}
+
+.title-form {
+  font-family: $font_ibm;
+  letter-spacing: 10px;
+}

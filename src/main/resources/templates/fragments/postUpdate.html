@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="postUpdate">
+            <form th:action="@{/post/@{id}/update}" method="post">
+                <input th:value="${post.id}" name="id" type="hidden">
+                <label th:for="content">Content</label>
+                <input th:value="${post.content}" th:text="*{content}">
+                <label th:for="picture">Picture</label>
+                <input th:value="${post.picture}" th:object="*{picture}">
+                <label th:for="video">Video</label>
+                <input th:value="${post.video}" th:field="${video}">
+                <input type="hidden" th:if="${event != null && event.id != null}" th:object="*{event}">
+            </form>
+        </div>
+    </body>
+</html>

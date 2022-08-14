@@ -1,0 +1,11 @@
+# Déploiement sous heroku
+
+1. Installez Heroku-CLI :
+  - https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+
+2. Suivez le tutorial suivant :
+  - https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku
+
+
+Vérifiez sur internet que votre marche bien (et envoyez l'adresse à votre
+formateur)

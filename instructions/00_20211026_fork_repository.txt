@@ -1,0 +1,7 @@
+# Préparation du repo
+
+1. Forkez ce repository dans votre compte github (pour l'instant un repository
+par personne)
+2. Ajouter Aenori en temps que collaborateur (setting => manage access => 
+invite people)
+

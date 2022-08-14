@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <body>
+        <div th:fragment="post" class="card">
+            <div class="card-body" th:each="post  ${posts}">
+                <h5 class="card-title" th:value="${post.author}"></h5>
+                <p class="card-text" th:value="${post.content}"></p>
+            </div>
+            <span th:if="${post.picture != null}">
+                <img src="@{${'/ressources/images/' + post.picture}}" alt="picture">
+            </span>
+        </div>
+    </body>
+</html>

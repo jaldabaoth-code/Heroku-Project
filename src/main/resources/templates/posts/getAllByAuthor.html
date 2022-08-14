@@ -1,0 +1,119 @@
+<th:block th:fragment="postByAuthor">
+    <div id="cards">
+        <h1>POSTS</h1>
+        <button type="button" class="btn newPost" data-bs-toggle="modal" data-bs-target="#createModal">Publish a new Post</button>
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="createModalLabel">Publish a new Post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form th:action="@{'/posts/create'}" method="POST" enctype="multipart/form-data">
+                            <label class ="mb-2">Content</label>
+                            <textarea name = "content" placeholder="What's new?"></textarea>
+                            <label class ="mb-2">Video</label>
+                            <input type="text" name="video" placeholder="EX : https://youtube.com/embed/Sy8nPI85Ih4?rel=0"/>
+                            <div class="picPost">
+                                <label class="mb-1">Picture</label>
+                                <img id="createPostPicturePreview"/>
+                                <label class="btn picUpload" onclick="document.getElementById('createPostPicture').click()">Pic your Pic</label>
+                                <input  style="display: none" id="createPostPicture" type="file" name="createPostPicture" accept="image/Posts/*" onchange="loadFile(event)" />
+                            </div>
+                            <button type="submit" name="Create" value="Create" class="btn-link createButton">Create</button>
+                            <script>
+                                var loadFile = function(event) {
+                                    var output = document.getElementById('createPostPicturePreview');
+                                    output.src = URL.createObjectURL(event.target.files[0]);
+                                    output.onload = function() {
+                                        URL.revokeObjectURL(output.src)
+                                    }
+                                };
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:each="post : ${posts}">
+            <div class="card-body">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span th:if="${post.author.profilImage}">
+                            <img class="rounded-circle profile-avatar" th:src="@{|/images/Profiles/${cerebookUser.id}/profile/${post.author.profilImage}|}" alt="picture">
+                        </span>
+                        <span th:unless="${post.author.profilImage}">
+                            <img class="rounded-circle profile-avatar" src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Clipart.png" alt="picture">
+                        </span>
+                        <div class="card-details">
+                            <div class="card_userName" th:text="${post.author.user.username}"></div>
+                            <div class="card_created_at" th:text="${post.createdAt}"></div>
+                        </div>
+                        <span th:if="${post.tweetos}">
+                            <img src="/images/tweetos.png" class="tweetos" alt="tweetos">
+                        </span>
+                    </div>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="fas fa-ellipsis-h"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li>
+                                <button type="button" class="btn updatePost" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+                            <li>
+                                <form method="POST" th:action="'/posts/' + ${post.id} + '/delete'">
+                                    <a class="dropdown-item  upline" href="#" onclick="this.parentNode.submit()">Delete</a>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="updateModalLabel">Update your Post</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form th:action="@{/posts/{post_id}/update(post_id=${post.id})}" method="POST" enctype="multipart/form-data">
+                                        <input hidden th:id="${post.id}">
+                                        <label class ="mb-2" th:for="content">Content</label>
+                                        <textarea th:value="${post.content}" name="content"></textarea>
+                                        <label class ="mb-2" th:for="video">Video</label>
+                                        <input type="text" th:value="${post.video}" name="video"/>
+                                        <div class="picPost">
+                                            <label class="mb-1">Picture</label>
+                                            <img id="updatePostPicturePreview"/>
+                                            <label class="btn picUpload" onclick="document.getElementById('updatePostPicture').click()">Update your Pic</label>
+                                            <input  style="display: none" id="updatePostPicture" type="file" name="updatePostPicture" accept="image/Posts/*" onchange="loadFile2(event)" />
+                                        </div>
+                                        <button type="submit" name="Update" value="Update" class="btn-link updateButton">Update</button>
+                                        <script>
+                                            var loadFile2 = function(event) {
+                                                var output = document.getElementById('updatePostPicturePreview');
+                                                output.src = URL.createObjectURL(event.target.files[0]);
+                                                output.onload = function() {
+                                                    URL.revokeObjectURL(output.src)
+                                                }
+                                            };
+                                        </script>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="card-text" th:text="${post.content}"></p>
+                    <span th:if="${post.video} != null">
+                        <iframe th:src="|${post.video}|" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </span>
+                    <span th:if="${post.picture} != null">
+                        <img th:src="'/images/Posts/' + ${post.picture}" alt="picture">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>

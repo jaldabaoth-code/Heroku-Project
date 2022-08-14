@@ -1,0 +1,40 @@
+# Projet Cerebook
+
+# Introduction
+
+Le professeur Xavier est heureux de son projet Cerebro qui lui permet de retrouver
+des X-Men, mais définitivement cette approche est un peu dépassée et trop centralisé.
+
+Le professeur Xavier vous a donc embauché pour développer une approche de réseaux 
+social pour ce site web. Mais, l'époque étant à l'inclusivité, celui-ci devra être
+accessible à tous :
+
+- super-héro / xmen
+- quidam
+- super-vilains
+
+De plus, afin de faciliter la communication, il est prévu de faire une intégration 
+avec twitter (dont l'api est plus simple car les tweets sont publics).
+
+## Historique
+
+v0.1 - 2021/10/26 - First draft
+
+# Fonctionnalités
+
+- Différence vilain / neutre / xmen
+- Controlleur CRUD generique
+- Intégration twitter / lien twitter compte
+- Fil de discussion
+- Suggestions d'amis avec exclusion (vilain <=> xmen)
+- Evenements (exclusif)
+- Confrontation (Vilains VS xmen)
+- Possibilité de mettre des posts
+- Redimensionnement d'image en back
+
+# Requirement technique
+
+- Hébergement Heroku 
+
+
+

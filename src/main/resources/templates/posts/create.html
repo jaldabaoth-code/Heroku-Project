@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <body>
+        <div th:fragment="postCreate">
+            <form th:action="@{/posts/create}" th:object="${post}" method="POST">
+                <th:block th:each="field : ${elementFields}">
+                    <label th:for="${field}" th:text="${#strings.capitalize(field)}"></label>
+                    <input th:id="${field}" th:name="${field}" th:placeholder="${field}">
+                    <input type="hidden" th:if="${event != null && event.id != null}" th:object="*{event}">
+                    <br>
+                </th:block>
+                <button type="submit" name="Create" value="Create" class="btn-link">Create</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <body>
+        <div th:fragment="banner">
+            <!-- Profile Background Image -->
+            <div class="background-profile" sec:authorize="isAuthenticated()">
+                <div class="background">
+                    <img th:src="${cerebookUser.getDefaultBackgroundPath()}" alt="x men">
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="profile d-flex flex-column justify-content-center align-items-center">
+                        <img th:src="${cerebookUser.getDefaultProfilImagePath()}" class="border bg-light rounded-circle photo-profile">
+                        <div class="badge d-flex flex-row justify-content-between align-items-center" th:if="${cerebookUser.membership}">
+                            <img th:if="${cerebookUser.membership.photo}!= null" th:src="'/images/' + ${cerebookUser.membership.photo}" class="align-self-start">
+                            <p class="text-light text-center my-auto me-4 pe-4" th:if="${cerebookUser.membership.name} != null" th:text="${cerebookUser.membership.name}"></p>
+                            <p class="text-light text-center my-auto me-4" th:unless="${cerebookUser.membership.name}  != null" th:text="${'No membership'}"></p>
+                        </div>
+                    </div>
+                    <div class="name-friendnumb">
+                        <p class="profilename" th:text="${cerebookUser.user.firstName} + ' ' + ${cerebookUser.user.lastName}"></p>
+                        <p class="friendnumb text-secondary" th:text="${countFriend} + ' friends'"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

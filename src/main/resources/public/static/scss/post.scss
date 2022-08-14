@@ -1,0 +1,189 @@
+#cards {
+  grid-column: 3/6;
+  grid-row-start: 1;
+  grid-row-end: 4;
+
+  h1 {
+    text-align: center;
+  }
+  .newPost, .createButton, .updateButton{
+    background-color: $secondary;
+    box-shadow: 7px 7px 4px 0px rgba(0,0,0,0.25);
+    color: white;
+    border-radius: 10px;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 16px;
+    text-decoration: none;
+  }
+
+  .picUpload {
+    background-color: $secondary;
+    box-shadow: 7px 7px 4px 0px rgba(0,0,0,0.25);
+    color: white;
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 16px;
+    text-decoration: none;
+  }
+
+  .modal-content {
+    background-color: $bgcolor;
+    box-shadow: 7px 7px 4px 0px rgba(0,0,0,0.25);
+    border: 2px solid $green-element;
+    border-radius: 10px;
+    padding: 8px;
+
+    form {
+      label {
+        text-align: center;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+
+      input, textarea {
+        border: 2px solid $green-element;
+        border-radius: 10px;
+      }
+
+      .picPost {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      img {
+        height: auto;
+        max-width: 95%;
+        max-height: 100%;
+      }
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+}
+  .card-body {
+    margin-bottom: 16px;
+    background-color: $bgcolor;
+    padding: 0 !important;
+    border: 2px solid $green-element;
+    border-radius: 10px;
+    box-shadow: 7px 7px 4px 0px rgba(0,0,0,0.25);
+
+    .card-header {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        height: 50px;
+      }
+      background-color: $bgcolor;
+
+      .card-title {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-family: Roboto, serif;
+        color: $secondary;
+        margin-bottom: 0;
+
+        .profile-avatar {
+          width: 50px;
+          height: 50px;
+        }
+
+        .card-details{
+          margin-left: 8px;
+
+          .card-userName {
+            font-size: 16px;
+          }
+
+          .card_created_at {
+            font-size: 11px;
+          }
+        }
+
+        .tweetos {
+          height: 15px;
+          width: auto;
+          align-self: start;
+          margin-left: 8px;
+          margin-top: 8px;
+        }
+      }
+
+      .dropdown{
+        #dropdownMenuLink {
+          color: $bgcolor !important;
+        }
+
+        .fa-ellipsis-h {
+          font-size: 25px;
+          color: $information;
+        }
+
+        .dropdown-menu {
+          border: 2px solid $green-element;
+          border-radius: 10px;
+          background-color: $bgcolor;
+        }
+
+        .dropdown-item {
+          padding: 8px;
+        }
+
+        .upline {
+          border-top: 1px solid $green-element;
+        }
+      }
+    }
+
+    .card-content {
+      border-top: 1px solid $green-element;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+
+      .card-text {
+        padding: 8px;
+        font-family: Roboto, serif;
+        font-size: 14px;
+      }
+
+      span {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+      }
+
+      iframe {
+        width: 100%;
+        height: 400px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        justify-self: center;
+        align-self: center;
+      }
+
+      img {
+        max-width: 95%;
+        max-height: 390px;
+        justify-self: center;
+        align-self: center;
+      }
+    }
+  }
+}

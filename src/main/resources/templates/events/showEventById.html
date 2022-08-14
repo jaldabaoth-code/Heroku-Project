@@ -1,0 +1,53 @@
+<!doctype html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}" xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/static/scss/style.css">
+        <title th:text="${eventById.getName()}">Cerebook | </title>
+    </head>
+    <body>
+        <main>
+            <div layout:fragment="content">
+                <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+                <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
+                <div>
+                    <img class="img-fluid w-100 heroImageEvent" style="max-height: 400px;" th:src="${eventById.getBackgroundPhotoShortPath()}" alt="">
+                </div>
+                <section class="container eventSections">
+                    <div class="row">
+                        <div class="d-block d-flex justify-content-between align-items-center">
+                            <h2 class="display-3 my-5 headingEvents fw-bold d-inline" th:text="${eventById.name}"></h2>
+                            <form th:if="${isParticipating} == false" th:action="@{/events/inscription_event/{eventId}(eventId=${eventById.id})}" method="POST" th:object="${participation}">
+                                <button type="submit" class="btn btn-primary">Participate</button>
+                            </form>
+                            <form th:unless="${isParticipating} == false" th:action="@{/events/unroll_event/{eventId}(eventId=${eventById.id})}" method="POST" th:object="${participation}">
+                                <button type="submit" class="btn btn-dark">Unsubscribe</button>
+                            </form>
+                            <form th:if="${isOwner} == true" th:action="@{/events/delete_event/{eventId}(eventId=${eventById.id})}" method="POST" th:object="${event}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-lg-flex justify-content-between align-items-start">
+                        <div class="shadow border-1 rounded eventBox p-5 my-5">
+                            <h3 class="my-3 display-4 mb-5 text-center">Description</h3>
+                            <h4 class="fw-bold my-4">What? <span class="fw-light" th:text="${eventById.description}"></span></h4>
+                            <h4 class="fw-bold my-4">When? <span class="fw-light" th:text="${eventById.getFormatedDate()}"></span></h4>
+                            <h4 class="fw-bold my-4">Event organizer: <span class="fw-light" th:text="${eventById.creator.getUsername()}"></span></h4>
+                        </div>
+                        <div class="shadow border-1 rounded eventBox p-5 my-5">
+                            <h3 class="my-3 display-4 mb-5 text-center">Participants</h3>
+                            <div th:if="${findAllParticipations != null}" th:each="participant : ${findAllParticipations}">
+                                <div class="d-flex align-items-center justify-content-center my-3">
+                                    <img th:src="${participant.getParticipant().getDefaultProfilImagePath()}" class="border bg-light rounded-circle mx-2" width="60" height="60" alt="participant profile photo"/>
+                                    <h5 class="mx-5" th:text="${participant.getParticipant().getUser().getUsername()}"></h5>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

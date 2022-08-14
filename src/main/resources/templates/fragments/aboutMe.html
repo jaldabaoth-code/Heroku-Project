@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <body>
+        <div th:fragment="aboutMe" class="aboutMe">
+            <div class="row">
+                <h2 class="my-5 title-form text-uppercase fw-bold text-center">About me</h2>
+            </div>
+            <div class="row">
+                <div class="col ms-lg-5 ms-2">
+                    <h3 class="mb-5 text-uppercase fw-bold">Name: <span class="fw-light text-capitalize" th:text="${cerebookUser.user.firstName} + ' ' + ${cerebookUser.user.lastName}"></span></h3>
+                    <h3 class="mb-5 text-uppercase fw-bold">Age: <span class="fw-light text-capitalize" th:text="${date}"></span></h3>
+                    <h3 class="mb-5 text-uppercase fw-bold">Gender: <span class="fw-light text-capitalize" th:text="${cerebookUser.genre}"></span></h3>
+                    <h3 class="mb-5 text-uppercase fw-bold">Superpowers: <span class="fw-light text-capitalize" th:text="${cerebookUser.superPowers}"></span></h3>
+                    <h3 class="mb-5 text-uppercase fw-bold">Bio: <span class="fw-light text-capitalize" th:text="${cerebookUser.bio}"></span></h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

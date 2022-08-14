@@ -1,0 +1,25 @@
+#feed {
+  h2{
+    text-align: center;
+  }
+
+  #cards {
+    margin: 2%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 600px);
+    grid-column-gap: 2%;
+    grid-row-gap: 1%;
+    @include lg-max {
+      grid-template-columns: repeat(1, 1fr);
+      font-size: 35px;
+      .card-text, .card-content {
+        font-size: 30px;
+      }
+      grid-row-gap: 0.3%;
+      img {
+        max-width: 368px;
+      }
+    }
+  }
+}

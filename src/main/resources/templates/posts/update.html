@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <body>
+        <div th:fragment="postUpdate">
+            <form th:action="@{/posts/{post_id}/update(post_id=${post.id})}" th: th:object="${post}" method="POST" enctype="multipart/form-data">
+                <input hidden th:id="*{id}">
+                <label class ="mb-2" th:for="content">Content</label>
+                <textarea th:field="content"></textarea>
+                <label class ="mb-2" th:for="video">Video</label>
+                <input type="text" th:field="video"/>
+                <div class="mb-3" id="postPicture">
+                    <label class="mb-1" th:for="picture">Picture</label>
+                    <input type="file" th:field="picture" accept="image/*" onchange="loadFile(event)" />
+                </div>
+                <button type="submit" name="Create" value="Create" class="btn-link">Create</button>
+                <script>
+                    var loadFile = function(event) {
+                        var output = document.getElementById('postPicture');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                        output.style.backgroundImage=`url(${output.src})`;
+                        output.onload = function() {
+                            URL.revokeObjectURL(output.src)
+                        }
+                    };
+                </script>
+            </form>
+        </div>
+    </body>
+</html>

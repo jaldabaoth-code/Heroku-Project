@@ -1,0 +1,34 @@
+# Intégration continue et CI 
+
+1. Créez un projet spring vide sur https://start.spring.io/, avec les
+settings suivantes :
+  - maven project
+  - language java
+  - spring boot 2.5.6
+  - group : wcs.cerebook
+  - packaging : war
+  - java : 11
+  - dependencies :
+    - Spring Boot DevTools
+    - Spring Web
+    - Thymeleaf
+    - Spring data JPA
+
+2. Mettez le dans votre clone du projet Github (le pom.xml doit être
+à la racine du repository) et pushez le sur github
+
+2.bis : dans le fichier DemoApplication, remplacer @SpringBootApplication par :
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+
+Comme on n'a pas encore configuré de base de donnée, on doit dire à Spring
+de ne pas essayer de la lancer ...
+
+3. Sous github, ajouter l'intégration continue :
+  - actions => setup workflow => java with maven
+  (A priori il devrait être proposé rapidement si vous avez bien mis
+  le pom.xml)
+
+4. Localement, faites un commit / push indolore (une ligne dans le readme)
+et vérifiez que l'intégration continue fonctionne bien.
+
+
