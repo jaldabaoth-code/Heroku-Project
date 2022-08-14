@@ -74,7 +74,7 @@
          6. In your terminal run : `git push heroku master` or `git push heroku master` (main or master, it depends on what is your branch)
 
    6.  Connect on your postgreSQL
-         1. In heroku dashboard click on your project
+         1. In <a href="https://dashboard.heroku.com/apps">Heroku Dashboard</a> click on your project
          2. Go to <b>Resources</b> and click to <b>Heroku Postgres</b>
          3. A new page will open, click to <b>Settings</b>
          4. Unfold <b>Database Credentials</b>, you will get your database information
