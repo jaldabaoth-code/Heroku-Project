@@ -98,5 +98,5 @@
 
 ## The Links
 
-<a href="https://github.com/Aenori/HerokuProject">Link to the repository of workshop of <b>WCS CDA Heroku Project</b></a>
+<a href="https://github.com/Aenori/HerokuProject">Link to the repository of workshop of <b>WCS CDA Heroku Project</b></a><br/>
 <a href="https://github.com/heroku/java-getting-started">Link to the repository of <b>Heroku - Java Getting Started</b></a>
