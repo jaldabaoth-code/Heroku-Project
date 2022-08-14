@@ -1,6 +1,6 @@
-<h1>Heroku Project (Workshop, WCS CDA Java)</h1>
+<h1>Heroku Project (Heroku Workshop, WCS CDA Java)</h1>
 
-### Create a site web (social network) for superheroes by using Java Spring
+### Deploying to Heroku, a project using Java Spring
 
 
 ---
@@ -23,7 +23,7 @@
    #### Check Connection Information
 10. `\conninfo`
 * Make sure you have <a href="https://www.oracle.com/java/technologies/downloads/">Java</a> and <a href="https://maven.apache.org/install.html">Maven</a> installed
-* Install the <a href="https://github.com/RaphaelBS-WCS/Cerebook">Heroku CLI</a>
+* Install the <a href="https://devcenter.heroku.com/articles/heroku-cli">Heroku CLI</a>
 
 ### Other postgreSQL commands
 1. Create new user : `create user user_name with encrypted password 'mypassword';`
@@ -43,15 +43,15 @@
 
    #### Running Locally
    1. Create the database
-   2. Run `mvn package`
-   3. Import the last version of the dataVx.sql file in your database
+   2. In your terminal run : `mvn package`
+   3. Import the last version of the <b>dataVx.sql</b> file in your database
    4. Run the server with : `heroku local` OR `heroku local:start` OR `heroku local -p 8080`
-   5. Go to <b>localhost:8080</b> with your favorite browser
+   5. Go to <b>https://localhost:8080</b> with your favorite browser
 
    #### Deploying to Heroku
    1. Go to <a href="https://dashboard.heroku.com/apps">Heroku Dashboard</a>
-   2. In heroku dashboard create new application : <b>New</b> -> <b>Create new app</b>
-   3. Once you choose the name of the application and your region., click on the button to validate it
+   2. In heroku dashboard create a new application : <b>New</b> -> <b>Create new app</b>
+   3. Once you choose the name of the application and your region, click on the button to validate it
    4. In your terminal run : `heroku login`
    5. Git repository (Choose the cas a, b or c)
       1. If you don't have a git repository (Create a new Git repository)
@@ -59,11 +59,11 @@
          2. In your terminal run : `heroku git:remote -a application_name`
          3. In your terminal run : `git add .`
          4. In your terminal run : `git commit -am "commit message"`
-         5. In your terminal run : `git push heroku main` OR `git push heroku master` (main or master, depends on your branch)
+         5. In your terminal run : `git push heroku main` OR `git push heroku master` (main or master, it depends on what is your branch)
 
       2. If you have a git repository
          1. In your terminal run : `heroku git:remote -a application_name`
-         2. In your terminal run : `git push heroku main` OR `git push heroku master` (main or master, depends on your branch)
+         2. In your terminal run : `git push heroku main` OR `git push heroku master` (main or master, it depends on what is your branch)
 
       3. If you want to clone the repository
          1. In your terminal run : `heroku git:clone -a application_name`
@@ -71,20 +71,20 @@
          3. Make some changes to the code you just cloned
          4. In your terminal run : `git add .`
          5. In your terminal run : `git commit -am "commit message"`
-         6. In your terminal run : `git push heroku master` OR `git push heroku master` (main or master, depends on your branch)
+         6. In your terminal run : `git push heroku master` OR `git push heroku master` (main or master, it depends on what is your branch)
 
    6.  Connect on your postgreSQL
       1. In heroku dashboard click on your project
-      2. Go to Resources and click to <b>Heroku Postgres</b>
-      3. A new page will open, click to Settings 
+      2. Go to <b>Resources</b> and click to <b>Heroku Postgres</b>
+      3. A new page will open, click to <b>Settings</b>
       4. Unfold <b>Database Credentials</b>, you will get your database information
       5. In your terminal run : `sudo su - postgres`
       6. Enter your password
       7. In your terminal run : `psql --host=heroku_host_name  --port=5432 --username=heroku_username --password --dbname=heroku_database_name`
       8. Enter heroku database password
 
-   7. Import the last version of the dataVx.sql file in the database
-   8. Go to <b>https://application_name.herokuapp.com/</b> with your favorite browser
+   7. Import the last version of the <b>dataVx.sql</b> file in your database
+   8. Go to <b>https://application_name.herokuapp.com</b> with your favorite browser
 
 4. For login (locally or online) You can use :
 
