@@ -74,14 +74,14 @@
          6. In your terminal run : `git push heroku master` or `git push heroku master` (main or master, it depends on what is your branch)
 
    6.  Connect on your postgreSQL
-      1. In heroku dashboard click on your project
-      2. Go to <b>Resources</b> and click to <b>Heroku Postgres</b>
-      3. A new page will open, click to <b>Settings</b>
-      4. Unfold <b>Database Credentials</b>, you will get your database information
-      5. In your terminal run : `sudo su - postgres`
-      6. Enter your password
-      7. In your terminal run : `psql --host=heroku_host_name  --port=5432 --username=heroku_username --password --dbname=heroku_database_name`
-      8. Enter heroku database password
+         1. In heroku dashboard click on your project
+         2. Go to <b>Resources</b> and click to <b>Heroku Postgres</b>
+         3. A new page will open, click to <b>Settings</b>
+         4. Unfold <b>Database Credentials</b>, you will get your database information
+         5. In your terminal run : `sudo su - postgres`
+         6. Enter your password
+         7. In your terminal run : `psql --host=heroku_host_name  --port=5432 --username=heroku_username --password --dbname=heroku_database_name`
+         8. Enter heroku database password
 
    7. Import the last version of the <b>dataVx.sql</b> file in your database
    8. Go to <b>https://application_name.herokuapp.com</b> with your favorite browser
