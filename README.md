@@ -45,7 +45,7 @@
    1. Create the database
    2. In your terminal run : `mvn package`
    3. Import the last version of the <b>dataVx.sql</b> file in your database
-   4. Run the server with : `heroku local` OR `heroku local:start` OR `heroku local -p 8080`
+   4. Run the server with : `heroku local` or `heroku local:start` or `heroku local -p 8080`
    5. Go to <b>https://localhost:8080</b> with your favorite browser
 
    #### Deploying to Heroku
@@ -59,11 +59,11 @@
          2. In your terminal run : `heroku git:remote -a application_name`
          3. In your terminal run : `git add .`
          4. In your terminal run : `git commit -am "commit message"`
-         5. In your terminal run : `git push heroku main` OR `git push heroku master` (main or master, it depends on what is your branch)
+         5. In your terminal run : `git push heroku main` or `git push heroku master` (main or master, it depends on what is your branch)
 
       2. If you have a git repository
          1. In your terminal run : `heroku git:remote -a application_name`
-         2. In your terminal run : `git push heroku main` OR `git push heroku master` (main or master, it depends on what is your branch)
+         2. In your terminal run : `git push heroku main` or `git push heroku master` (main or master, it depends on what is your branch)
 
       3. If you want to clone the repository
          1. In your terminal run : `heroku git:clone -a application_name`
@@ -71,7 +71,7 @@
          3. Make some changes to the code you just cloned
          4. In your terminal run : `git add .`
          5. In your terminal run : `git commit -am "commit message"`
-         6. In your terminal run : `git push heroku master` OR `git push heroku master` (main or master, it depends on what is your branch)
+         6. In your terminal run : `git push heroku master` or `git push heroku master` (main or master, it depends on what is your branch)
 
    6.  Connect on your postgreSQL
       1. In heroku dashboard click on your project
