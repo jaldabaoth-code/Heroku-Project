@@ -53,7 +53,7 @@
    2. In heroku dashboard create new application : <b>New</b> -> <b>Create new app</b>
    3. Once you choose the name of the application and your region., click on the button to validate it
    4. In your terminal run : `heroku login`
-   5. Git repository (Choose the cas 1, 2 or 3)
+   5. Git repository (Choose the cas a, b or c)
       1. If you don't have a git repository (Create a new Git repository)
          1. In your terminal run : `git init`
          2. In your terminal run : `heroku git:remote -a application_name`
@@ -74,12 +74,12 @@
          6. In your terminal run : `git push heroku master` OR `git push heroku master` (main or master, depends on your branch)
 
    6.  Connect on your postgreSQL
-      1. In your terminal run : `sudo su - postgres`
-      2. Enter your password
-      3. In heroku dashboard click on your project
-      4. Go to Resources and click to <b>Heroku Postgres</b>
-      5. A new page will open, click to Settings 
-      6. unfold <b>Database Credentials</b>, you will get your database informationss
+      1. In heroku dashboard click on your project
+      2. Go to Resources and click to <b>Heroku Postgres</b>
+      3. A new page will open, click to Settings 
+      4. Unfold <b>Database Credentials</b>, you will get your database information
+      5. In your terminal run : `sudo su - postgres`
+      6. Enter your password
       7. In your terminal run : `psql --host=heroku_host_name  --port=5432 --username=heroku_username --password --dbname=heroku_database_name`
       8. Enter heroku database password
 
@@ -98,5 +98,5 @@
 
 ## The Links
 
-<a https://github.com/Aenori/HerokuProject">Link to the repository of workshop of <b>WCS CDA Heroku Project</b></a>
-<a https://github.com/heroku/java-getting-started">Link to the repository of <b>Heroku - Java Getting Started</b></a>
+<a href="https://github.com/Aenori/HerokuProject">Link to the repository of workshop of <b>WCS CDA Heroku Project</b></a>
+<a href="https://github.com/heroku/java-getting-started">Link to the repository of <b>Heroku - Java Getting Started</b></a>
