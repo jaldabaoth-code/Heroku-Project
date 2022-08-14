@@ -43,6 +43,7 @@
 
    #### Running Locally
    1. Create the database
+   2. Create <b>.env</b> file from <b>.env.model</b> and add your Database parameters
    2. In your terminal run : `mvn package`
    3. Import the last version of the <b>dataVx.sql</b> file in your database
    4. Run the server with : `heroku local` or `heroku local:start` or `heroku local -p 8080`
